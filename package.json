@@ -5,9 +5,13 @@
     "start": "live-server .",
     "scss:build": "sass styles/main.scss styles/main.css",
     "scss:watch": "sass --watch styles/main.scss styles/main.css",
-    "dev": "yarn scss:watch & yarn start"
+    "dev": "yarn scss:watch & yarn start",
+    "build": "mkdir -p dist/styles && cp index.html index.js dist/ && cp -r static dist/static && cp styles/main.css styles/main.css.map dist/styles",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "live-server": "^1.2.2",
     "sass": "^1.84.0"
   }
